@@ -1,0 +1,42 @@
+<html >
+
+<h3 align="center" >Convert</h3><br>
+<body>
+ <input type="number" min="0" id="input" placeholder="Masukkan Detik">
+ <button id="btn">Convert</button>
+</td>
+ Hasil
+ <p id="result"></p>
+</td>
+
+<script>
+ var x, y, jam, menit, detik,
+    input  = document.getElementById('input'),
+    btn    = document.getElementById('btn'),
+    result = document.getElementById('result');
+
+ btn.addEventListener('click', function(){
+  x     = input.value;
+  y     = x % 3600;
+  jam   = x / 3600;
+  menit = y / 60;
+  detik = y % 60;
+  
+  result.innerHTML = Math.floor(jam) + ' Jam ' + Math.floor(menit) + ' Menit ' + Math.floor(detik) + ' Detik ';
+  var x = setInterval(function() {
+
+var sekarang = result.innerHTML
+
+var jarak = countDown - sekarang;
+var jam = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var menit = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
+var detik = Math.floor((jarak % (1000 * 60)) / 1000);
+
+if (jarak < 0) {
+    clearInterval(x);
+    alert('waktu habis')
+}
+}, 1000);
+});
+</script>
+</html>
